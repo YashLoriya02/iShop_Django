@@ -1,0 +1,98 @@
+{% extends 'shop/base.html' %}
+
+{% block title %} iShop Contact {% endblock  %}
+{% block css %} 
+
+{% comment %} .container{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} {% endcomment %}
+
+body{
+    background-color: #dcdcdc;
+}
+h1{
+    text-align: center;
+    /* align-items: center; */
+    margin-top: 20px;
+}
+#name,#email.#phone,#desc{
+    border-radius:10px;
+    color:black;
+}
+.form-control{
+    width:70%;
+    height:20;
+    margin:auto;
+}
+.mb-3,.mb-4{
+    font-size:20px;
+    margin-left:100px;
+}
+.form-label{
+    margin-left:160px;
+}
+.btn-success {
+
+    display:block;
+    margin:auto;
+    {% comment %} margin-left: 33rem; {% endcomment %}
+}
+.div1{
+    margin-top:62px;
+    height:40px;
+    font-size: 22px;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    text-align: center;
+  }
+{% comment %} input{
+    width: 550px;
+    padding: 10px;
+    margin: 5px 0;
+} {% endcomment %}
+
+{% endblock  %}
+
+{% block body %} 
+
+{% if messages %}
+          {% for message in messages %}
+          {% if message.tags %}<script>alert("{{message}}")</script>{% endif %}
+          {% endfor %}
+          {% endif %}
+
+<div class="container my-4">
+    <h1>Contact Us</h1>
+    <form action="/shop/contact/" method="POST"> {% csrf_token %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Enter Your Name">
+        </div>
+        <div class="mb-3">
+          <label for="mail" class="form-label">E-mail</label>
+          <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Your E-mail">
+          {% comment %} <div id="emailHelp" class="form-text">*We'll never share your email with anyone else.</div> {% endcomment %}
+        </div>
+        <div class="mb-4">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="phone" name="phone" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="Enter Your Phone Number">
+        </div>
+        <div class="form mb-3">
+            <label for="desc" class="form-label">Query/Message</label>
+            <textarea class="form-control" placeholder="Leave a Message here" name="desc" id="desc" style="height: 100px"></textarea>
+          </div>
+        <button type="submit" id="m-left" class="btn btn-success">Submit</button>
+      </form>
+</div> 
+<footer>
+    <div class="div1">Copyright &copy; 2023 www.iShop.com- All Rights reserved</div>
+    <div class="socials"><i id="S1" class="fa fa-facebook-square"></i>
+    <i id="S2" class="fa fa-instagram"></i>
+    <i id="S3" class="fa fa-twitter"></i>
+  </div>
+  </footer>
+{% endblock  %}

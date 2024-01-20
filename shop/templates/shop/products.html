@@ -1,0 +1,61 @@
+{% extends 'shop/base.html' %}
+
+{% block title %} {{product.product_name}} - iShop {% endblock  %}
+
+{% block css %} 
+.prod-img{
+    height: 350px;
+}
+.div1{
+    height:40px;
+    font-size: 22px;
+    margin-top:137px;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    text-align: center;
+  }
+#change{
+    width:100px;
+    height:50px;
+    margin-left:100px;
+}
+#take-left{
+    margin-left: 3.8rem;
+}
+#change2{
+    width:110px;
+    height:50px;
+}
+{% endblock  %}
+
+{% block body %} 
+
+<div class="container my-5">
+    <div class="row">
+    <div class="col-md-4">
+     <div class="row">
+         <img src="/media/{{product.image}}" class="prod-img" alt="Product-Image"> 
+     </div>
+     <div id='take-left'>
+       <a href='/shop/checkout'> <button class="btn btn-primary my-3 mx-2" id="change">Buy Now</button> </a>
+       <a> <button class="btn btn-primary my-3" id="change2">Add to Cart</button> </a>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <h3>{{product.product_name}}</h3>
+        <p><b>Rs.{{product.price}}</b></p>
+        <p>{{product.desc}}</p>
+    </div>
+
+</div>
+</div>
+<footer>
+    <div class="div1">Copyright &copy; 2023 www.iShop.com- All Rights reserved</div>
+    <div class="socials"><i id="S1" class="fa fa-facebook-square"></i>
+    <i id="S2" class="fa fa-instagram"></i>
+    <i id="S3" class="fa fa-twitter"></i>
+  </div>
+  </footer>
+
+{% endblock  %}
